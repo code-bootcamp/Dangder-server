@@ -2,7 +2,7 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Support {
+type Donate {
   id: String!
   amount: Int!
 }
@@ -11,19 +11,71 @@ type User {
   id: String!
   email: String!
   password: String!
+  pet: Int!
   ddMoney: Int!
-  cellPhone: String!
+  phone: String!
   createdAt: DateTime!
   updatedAt: DateTime!
-  report: Int!
-  support: Int!
-  supportId: Support!
+  reportCnt: Int!
+  donateTotal: Int!
+  isCert: Boolean!
+  donateGrade: String!
+  donate: Donate!
 }
 
 """
 A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
 """
 scalar DateTime
+
+type Character {
+  id: String!
+  character: String!
+  dogs: [Dog!]!
+}
+
+type Breed {
+  id: String!
+  name: String!
+  dogs: [Dog!]!
+}
+
+type Interest {
+  id: String!
+  interest: String!
+  dogs: [Dog!]!
+}
+
+type Dog {
+  id: String!
+  name: String!
+  age: String!
+  gender: GENDER_ENUM!
+  isNeut: Boolean!
+  description: String!
+  interests: [Interest!]!
+  avoidBreeds: [AvoidBreed!]!
+  characters: [Character!]!
+  breeds: [Breed!]!
+  user: User!
+}
+
+enum GENDER_ENUM {
+  MALE
+  FEMALE
+}
+
+type AvoidBreed {
+  id: String!
+  avoidBreed: String!
+  dogs: [Dog!]!
+}
+
+type Chatroom {
+  id: String!
+  chatPairId: String!
+  dog: Dog!
+}
 
 type Query {
   fetchUser: String!
