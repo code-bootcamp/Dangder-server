@@ -8,7 +8,7 @@ export class UserResolver {
   ) {}
 
   @Query(() => String)
-  fetchUser(
+  fetchUsers(
     @Context() context: any, //
   ) {
     // 유저 정보 꺼내오기
